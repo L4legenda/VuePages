@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header>
+      <button @click="page = 'page1'">page 1</button>
+      <button @click="page = 'page2'">page 2</button>
+    </header>
+
+    <main>
+      <page1 v-if="page == 'page1'"/>
+      <page2 v-if="page == 'page2'"/>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import page1 from './components/page1.vue'
+import page2 from './components/page2.vue'
 
 export default {
+  data: function(){
+    return {
+      page : "page1"
+    }
+  },
   name: 'App',
   components: {
-    HelloWorld
+    page1,
+    page2
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
